@@ -10,7 +10,7 @@ const AboutUs = ({left}) =>{
                         and miniaturization to achieve a healthy glow. first  skin
                         healthy - looking skin is maintaining an internal regimen
                         moisturized and blemish free.</p>
-                    <button className="w-[110px] h-[40px] flex items-center rounded justify-center text-[10px] text-white bg-[#2563EB]  mt-[20px]">Buy Now</button>
+                    <button className="lg:w-[110px] w-auto h-[40px] flex items-center rounded justify-center text-[10px] text-white bg-[#2563EB]  mt-[20px]">Buy Now</button>
                 </div>
             </div>
             <div className="w-[100%] my-[15px] md:mt-0 md:w-[50%] ">

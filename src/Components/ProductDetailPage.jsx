@@ -224,7 +224,7 @@ const ProductDetailPage = () => {
                             <Testimonials/>
                         </div>
                     </div>
-                    <div className="flex w-[100%] justify-between flex-wrap mt-[20px]">
+                    <div className="flex w-[100%] justify-between flex-wrap lg:mt-[20px] mt-[40px]">
                         {BulletCardsArr.map(({img, title}) => {
                             return (
                                 <BulletCard img={img} title={title}/>
