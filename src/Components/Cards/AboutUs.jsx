@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = ({left}) =>{
     return(
-        <div className={`flex flex-col md:flex-row w-[100%] justify-between ${left? " md:flex-row":"md:flex-row-reverse"} `}>
+        <div className={`flex flex-col md:flex-row w-[100%] justify-between md:h-[350px] ${ left ? " md:flex-row" : "md:flex-row-reverse" } `}>
             <div className="flex w-[100%] md:w-[50%] items-center justify-center">
                 <div className="flex flex-col w-[300px]">
                     <p className="font-[600] text-[20px] text-[#232859]">Naturals organic skin creams for face & body</p>
@@ -13,7 +13,7 @@ const AboutUs = ({left}) =>{
                     <button className="w-[110px] h-[40px] flex items-center rounded justify-center text-[10px] text-white bg-[#2563EB]  mt-[20px]">Buy Now</button>
                 </div>
             </div>
-            <div className="w-[100%] my-[15px] md:mt-0 md:w-[50%]">
+            <div className="w-[100%] my-[15px] md:mt-0 md:w-[50%] ">
                 <img className="h-[350px] w-[380px]" src="/assets/images/about-us.png" />
             </div>
         </div>

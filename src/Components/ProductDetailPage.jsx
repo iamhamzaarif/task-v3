@@ -6,11 +6,16 @@ import BlogCard from "./Cards/BlogCard";
 import Testimonials from "./Testimonials";
 import BulletCard from "./Cards/BulletCard";
 import AboutUs from "./Cards/AboutUs";
+import Carousel, { consts } from 'react-elastic-carousel';
+
+import {AiOutlineLeft,AiOutlineRight} from "react-icons/ai"
 
 
 const ProductDetailPage = () => {
 
+    const [image, setImage] = useState(1)
     const [count, setCount] = useState(1)
+    const [colour, setColour] = useState("Gold")
 
     const BlogCardsArr = [
         {
@@ -69,6 +74,14 @@ const ProductDetailPage = () => {
             setCount(count - 1)
         }
     }
+    const myArrow = ({ type, onClick, isEdge }) => {
+        const pointer = type === consts.PREV ? true : false
+        return (
+            <button className="flex items-center justify-center w-[40px] h-[100px] bg-white rounded border" onClick={onClick} disabled={isEdge}>
+                {pointer? <AiOutlineLeft className="text-black font-bold text-[16px]" /> : <AiOutlineRight  className="text-black font-bold text-[16px]" />}
+            </button>
+        )
+    }
 
     return (
         <>
@@ -76,7 +89,27 @@ const ProductDetailPage = () => {
                 <div className="max-w-[814px] border w-[100%] h-[100%] p-[30px]">
                     <div className="flex flex-col md:flex-row gap-[20px]">
                         <div>
-                            <img className="w-[392.5px] h-[384.95px]" src="/assets/images/main.png"/>
+                            {image == 1 && <img className="w-[392.5px] h-[384.95px]  rounded" src="/assets/images/main.png"/>}
+                            {image == 2 && <img className="w-[392.5px] h-[384.95px]  rounded" src="/assets/images/main_02.jpg"/>}
+                            {image == 3 && <img className="w-[392.5px] h-[384.95px]  rounded" src="/assets/images/main_03.jpg"/>}
+                            {image == 4 && <img className="w-[392.5px] h-[384.95px]  rounded" src="/assets/images/main_04.jpg"/>}
+                            {image == 5 && <img className="w-[392.5px] h-[384.95px]  rounded" src="/assets/images/main_05.jpg"/>}
+                                    <div className="flex mt-[20px] justify-evenly w-[100%]">
+                                        <Carousel renderArrow={myArrow} itemsToShow={4}
+                                                  infiniteLoop={true}
+                                                  renderPagination={({ pages, activePage, onClick }) => {
+                                                      return <div></div>
+                                                  }}
+                                        >
+                                            <img onClick={()=>{setImage(1)}} className={`mt-[10px] rounded-md ${image==1?"border border-blue-800":""}`} src="/assets/images/MainSlide_03.png" />
+                                            <img  onClick={()=>{setImage(2)}} className={`mt-[10px] rounded-md ${image==2?"border border-blue-800":""}`}  src="/assets/images/MainSlide_02.png" />
+                                            <img  onClick={()=>{setImage(3)}} className={`mt-[10px] rounded-md ${image==3?"border border-blue-800":""}`} src="/assets/images/MainSlide.png" />
+                                            <img  onClick={()=>{setImage(4)}} className={`mt-[10px] rounded-md ${image==4?"border border-blue-800":""}`} src="/assets/images/MainSlide_02.png" />
+                                            <img  onClick={()=>{setImage(5)}} className={`mt-[10px] rounded-md ${image==5?"border border-blue-800":""}`} src="/assets/images/MainSlide.png" />
+                                        </Carousel>
+
+                                    </div>
+
                         </div>
                         <div className="flex flex-col">
                             <div className="flex flex-col">
@@ -116,16 +149,13 @@ const ProductDetailPage = () => {
                             <div className="flex flex-col mt-[10px]">
                                 <p className="text-[12.58px] font-bold text-[#232859]">Color</p>
                                 <div className="flex gap-[5px] mt-[5px]">
-                                    <span
-                                        className="flex items-center justify-center text-[11.32px] w-[55px] h-[26px] bg-[#2563EB] font-bold rounded-lg text-white">Gold</span>
-                                    <span
-                                        className="flex items-center justify-center text-[11.32px] w-[55px] h-[26px] text-[#232859] font-[500]">Blue</span>
-                                    <span
-                                        className="flex items-center justify-center text-[11.32px] w-[55px] h-[26px] text-[#232859] font-[500]">Pink</span>
-                                    <span
-                                        className="flex items-center justify-center text-[11.32px] w-[55px] h-[26px] text-[#232859] font-[500]">Purple</span>
-                                    <span
-                                        className="flex items-center justify-center text-[11.32px] w-[55px] h-[26px] text-[#232859] font-[500]">Red</span>
+
+                                    <span onClick={()=>{setColour("Gold")}} className={`flex items-center justify-center cursor-pointer text-[11.32px] w-[55px] h-[26px] ${colour == "Gold"? "font-bold bg-[#2563EB] rounded-lg text-white": "text-[#232859] font-[500]"}`}>Gold</span>
+                                    <span onClick={()=>{setColour("Blue")}} className={`flex items-center justify-center cursor-pointer text-[11.32px] w-[55px] h-[26px] ${colour == "Blue"? "font-bold bg-[#2563EB] rounded-lg text-white": "text-[#232859] font-[500]"}`}>Blue</span>
+                                    <span onClick={()=>{setColour("Pink")}} className={`flex items-center justify-center cursor-pointer text-[11.32px] w-[55px] h-[26px] ${colour == "Pink"? "font-bold bg-[#2563EB] rounded-lg text-white": "text-[#232859] font-[500]"}`}>Pink</span>
+                                    <span onClick={()=>{setColour("Purp")}} className={`flex items-center justify-center cursor-pointer text-[11.32px] w-[55px] h-[26px] ${colour == "Purp"? "font-bold bg-[#2563EB] rounded-lg text-white": "text-[#232859] font-[500]"}`}>Purple</span>
+                                    <span onClick={()=>{setColour("Red<")}} className={`flex items-center justify-center cursor-pointer text-[11.32px] w-[55px] h-[26px] ${colour == "Red<"? "font-bold bg-[#2563EB] rounded-lg text-white": "text-[#232859] font-[500]"}`}>Red</span>
+
                                 </div>
                             </div>
                             <div className="flex flex-col mt-[10px]">
@@ -151,8 +181,8 @@ const ProductDetailPage = () => {
                         </div>
                     </div>
                     <div className="pt-[28px] pr-[22px] pb-[28px] pl-[22px] bg-[#FBFBFE] mt-[31px]">
-                        <div className="m-4">
-                            <div className="flex justify-evenly flex-wrap m-[30px] ">
+                        <div className="m-4 border-t  border-b">
+                            <div className="flex justify-evenly flex-wrap m-[30px]">
                                 <img src="/assets/images/airbnb.png"/>
                                 <img src="/assets/images/Hubspot.png"/>
                                 <img src="/assets/images/Google.png"/>
