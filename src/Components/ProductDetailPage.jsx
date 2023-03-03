@@ -161,7 +161,7 @@ const ProductDetailPage = () => {
                             <div className="flex flex-col mt-[10px]">
                                 <p className="text-[12.58px] font-bold text-[#232859]">Quantity</p>
                                 <div
-                                    className="flex items-center border-solid justify-evenly w-[90px] h-[35px] rounded gap-[5px] mt-[5px] border border-[2px]">
+                                    className="flex items-center border-solid justify-evenly w-auto lg:w-[90px] h-[35px] rounded gap-[5px] mt-[5px] border border-[2px]">
                                     <span onClick={removeItem}
                                           className="text-[#232859] text-[16px] cursor-pointer">-</span>
                                     <span className="text-[#232859] text-[16px]">{count}</span>
@@ -184,11 +184,11 @@ const ProductDetailPage = () => {
                         <div className="m-4 border-t  border-b">
                             <div className="flex justify-evenly flex-wrap m-[30px]">
                                 <img src="/assets/images/airbnb.png"/>
-                                <img src="/assets/images/Hubspot.png"/>
+                                <img className="hidden lg:block"src="/assets/images/Hubspot.png"/>
                                 <img src="/assets/images/Google.png"/>
-                                <img src="/assets/images/Microsoft.png"/>
-                                <img src="/assets/images/Walmart.png"/>
-                                <img src="/assets/images/FedEx.png"/>
+                                <img className="hidden lg:block" src="/assets/images/Microsoft.png"/>
+                                <img className="hidden lg:block" src="/assets/images/Walmart.png"/>
+                                <img className="hidden lg:block" src="/assets/images/FedEx.png"/>
                             </div>
                         </div>
                     </div>

@@ -82,7 +82,7 @@ const Testimonials = () => {
 
             </Carousel>
             <div className="flex justify-between mt-[40px] md:mt-[20px]">
-                <div className="flex flex-row gap-[2px]">
+                <div className="flex flex-row items-center gap-[2px]">
                     <GoPrimitiveDot onClick={() => carousel.current.goTo(0)} className={`w-[20px] cursor-pointer h-[20px] ${currentActive == 0 ? "text-blue-600" : "text-gray-400"}`} />
                     <GoPrimitiveDot onClick={() => carousel.current.goTo(1)} className={`w-[20px] cursor-pointer h-[20px] ${currentActive == 1 ? "text-blue-600" : "text-gray-400"}`} />
                     <GoPrimitiveDot onClick={() => carousel.current.goTo(2)} className={`w-[20px] cursor-pointer h-[20px] ${currentActive == 2 ? "text-blue-600" : "text-gray-400"}`} />
